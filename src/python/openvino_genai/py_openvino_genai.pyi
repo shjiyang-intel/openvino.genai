@@ -454,6 +454,7 @@ class EncodedGenerationResult:
     """
     m_generation_ids: list[list[int]]
     m_scores: list[float]
+    m_logits: list[list[float]]
     def __init__(self) -> None:
         ...
     @property
@@ -481,6 +482,9 @@ class EncodedResults:
         ...
     @property
     def scores(self) -> list[float]:
+        ...
+    @property
+    def logits(self) -> list[list[float]]:
         ...
     @property
     def tokens(self) -> list[list[int]]:

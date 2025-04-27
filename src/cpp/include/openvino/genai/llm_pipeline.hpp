@@ -42,6 +42,7 @@ class EncodedResults {
 public:
     std::vector<std::vector<int64_t>> tokens;
     std::vector<float> scores;
+    std::vector<std::vector<float>> logits;
     PerfMetrics perf_metrics;
 };
 
