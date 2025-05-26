@@ -36,13 +36,14 @@ using StringInputs = std::variant<std::string, std::vector<std::string>>;
 *
 * @param tokens sequence of resulting tokens
 * @param scores sum of logarithmic probabilities of all tokens in the sequence
+* @param log_probs log probabilities of all tokens in the sequence
 * @param metrics performance metrics with tpot, ttft, etc. of type ov::genai::PerfMetrics
 */
 class EncodedResults {
 public:
     std::vector<std::vector<int64_t>> tokens;
     std::vector<float> scores;
-    std::vector<std::vector<float>> logits;
+    std::vector<std::vector<float>> log_probs;
     PerfMetrics perf_metrics;
 };
 

@@ -441,6 +441,7 @@ class EncodedGenerationResult:
         generation_ids:     in a generic case we have multiple generation results per initial prompt
             depending on sampling parameters (e.g. beam search or parallel sampling).
         scores:             scores.
+        log_probs:          log probabilities.
         status:             status of generation. The following values are possible:
             RUNNING = 0 - Default status for ongoing generation.
             FINISHED = 1 - Status set when generation has been finished.
@@ -454,7 +455,7 @@ class EncodedGenerationResult:
     """
     m_generation_ids: list[list[int]]
     m_scores: list[float]
-    m_logits: list[list[float]]
+    m_log_probs: list[list[float]]
     def __init__(self) -> None:
         ...
     @property
@@ -475,6 +476,7 @@ class EncodedResults:
         Parameters: 
         tokens: sequence of resulting tokens.
         scores: sum of logarithmic probabilities of all tokens in the sequence.
+        log_probs: logarithmic probabilities of all tokens in the sequence.
         metrics: performance metrics with tpot, ttft, etc. of type ov::genai::PerfMetrics.
     """
     @property
@@ -484,7 +486,7 @@ class EncodedResults:
     def scores(self) -> list[float]:
         ...
     @property
-    def logits(self) -> list[list[float]]:
+    def log_probs(self) -> list[list[float]]:
         ...
     @property
     def tokens(self) -> list[list[int]]:

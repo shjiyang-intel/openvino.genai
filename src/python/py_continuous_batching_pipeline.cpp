@@ -198,7 +198,7 @@ void init_continuous_batching_pipeline(py::module_& m) {
         .def_readonly("m_request_id", &EncodedGenerationResult::m_request_id)
         .def_readwrite("m_generation_ids", &EncodedGenerationResult::m_generation_ids)
         .def_readwrite("m_scores", &EncodedGenerationResult::m_scores)
-        .def_readwrite("m_logits", &EncodedGenerationResult::m_logits)
+        .def_readwrite("m_log_probs", &EncodedGenerationResult::m_log_probs)
         .def_readonly("perf_metrics", &EncodedGenerationResult::perf_metrics);
 
     py::enum_<ov::genai::GenerationFinishReason>(m, "GenerationFinishReason")
